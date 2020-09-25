@@ -21,7 +21,7 @@ public class ExampleRecipe implements Recipe<Inventory> {
             Registry.ITEM.fieldOf("input2").forGetter(ExampleRecipe::getInput2),
             ItemStack.CODEC.fieldOf("result").forGetter(ExampleRecipe::getOutput)
     ).apply(instance, ExampleRecipe::new));
-    public static final Identifier ID = new Identifier("example", "recipe");
+    private final Identifier id = new Identifier("example", "recipe");
     private final Item input1;
     private final Item input2;
     private final ItemStack output;
@@ -57,7 +57,7 @@ public class ExampleRecipe implements Recipe<Inventory> {
 
     @Override
     public Identifier getId() {
-        return ID;
+        return this.id;
     }
 
     @Override
